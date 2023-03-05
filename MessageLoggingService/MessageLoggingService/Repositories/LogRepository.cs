@@ -2,6 +2,7 @@
 using MessageLoggingService.Contracts;
 using MessageLoggingService.Models;
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Security.AccessControl;
 using System.Text.Json;
@@ -15,7 +16,7 @@ namespace MessageLoggingService.Repositories
         {
             
         }
-        public List<Log> getLog(int logId)
+        public List<Log> getLog([Required] int logId)
         {
             List<Log> source = new List<Log>();
 
@@ -32,7 +33,7 @@ namespace MessageLoggingService.Repositories
                 return null;
         }
 
-        public void addMessage(string name, int logId, string message)
+        public void addMessage([Required] string name, [Required] int logId, string message)
         {
 
             var logMessage = new Log { logId = logId, message = message, name = name, loggedAt = DateTime.Now };
