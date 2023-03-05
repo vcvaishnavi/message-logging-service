@@ -1,0 +1,33 @@
+#ignore thumbnails created by windows
+Thumbs.db
+
+#Ignore files by Visual Studio
+*.user
+*.suo
+*.orig
+*.trx
+*.dat
+*.tmp
+*.exe
+*.log
+*.bin
+*.psd
+
+#Builds/generated stuff
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+
+packages/
+Testresults
+_[Rr]esharper*
+*.cache
+*.FileListAbsolute.txt
+!nuget.exe
+*.pubxml
+!_install/
+.vs/config/applicationhost.config
+/.vs/config/applicationhost.config
+
+.vs/
