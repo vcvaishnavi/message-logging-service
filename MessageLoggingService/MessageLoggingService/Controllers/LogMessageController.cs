@@ -19,7 +19,6 @@ namespace MessageLoggingService.Controllers
 
         
         [HttpGet(Name = "GetLog")]
-
         /// <summary>
         /// Reads the log messages from the log object and filters it by log ID and MaxAge
         /// </summary>
@@ -44,8 +43,10 @@ namespace MessageLoggingService.Controllers
 
             _logRepository.addMessage(name, logId, message);
         }
+
        
-      
+
+
         [HttpPut(Name = "SetMaxAge")]
         /// <summary>
         /// Updates the max Age variable to the given value.
@@ -61,6 +62,19 @@ namespace MessageLoggingService.Controllers
 
             _logRepository.setMaxAge(maxAge);
         }
+
+        [HttpGet]
+        [Route("/")]
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public ServiceState GetServiceState()
+        {
+            return _logRepository.getServiceState();
+        }
+
+
 
     }
 }

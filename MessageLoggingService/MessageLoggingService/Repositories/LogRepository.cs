@@ -38,6 +38,16 @@ namespace MessageLoggingService.Repositories
             _appParameters.maxAge = maxAge;           
 
         }
+        public ServiceState getServiceState()
+        {
+            var serviceState = new ServiceState();
+            serviceState.MaxAge = _appParameters.maxAge;
+            serviceState.TotalNumberOfStoredMessages = _logs.Count;
+            serviceState.CurrentNumberOfStoredLogs = _logs.GroupBy(x => x.logId).Count();
+            if(_logs.GroupBy(x => x.logId).Count() >0)
+                serviceState.AverageNumberOfMessagesPerLog = _logs.Count / (_logs.GroupBy(x => x.logId).Count());
+            return serviceState;
+        }
 
     }
 }

@@ -20,8 +20,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.MapControllers();
 
-app.MapGet("/", () => "Hello World");
-
 
 app.Run();
 

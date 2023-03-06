@@ -7,5 +7,6 @@ namespace MessageLoggingService.Contracts
         public List<Log> getLog(int logId);
         public void addMessage(string name, int logId, string message);
         public void setMaxAge(int maxAge);
+        public ServiceState getServiceState();
     }
 }
