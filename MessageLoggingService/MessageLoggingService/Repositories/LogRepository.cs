@@ -1,11 +1,7 @@
 ﻿
 using MessageLoggingService.Contracts;
 using MessageLoggingService.Models;
-using System;
 using System.ComponentModel.DataAnnotations;
-using System.IO;
-using System.Security.AccessControl;
-using System.Text.Json;
 
 namespace MessageLoggingService.Repositories
 {
