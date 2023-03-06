@@ -12,9 +12,11 @@ namespace MessageLoggingService.Repositories
     public class LogRepository : ILogRepository
     {
         protected const string fileName = "Log.json";
+      //  protected string appParameterFilename = AppDomain.CurrentDomain.BaseDirectory + "\\AppParameters.json";
+      private AppParameters _appParameters;
         public LogRepository()
         {
-            
+            _appParameters = new AppParameters();
         }
         public List<Log> getLog([Required] int logId)
         {
@@ -27,7 +29,8 @@ namespace MessageLoggingService.Repositories
 
             if (source != null)
             {
-                return source.Where(x => x.logId == logId).ToList();
+                return source.Where(x => x.logId == logId)
+                    .Where(x => (DateTime.Now- x.loggedAt).TotalSeconds < _appParameters.maxAge).ToList();                    
             }
             else
                 return null;
@@ -48,6 +51,12 @@ namespace MessageLoggingService.Repositories
             string jsonString = JsonSerializer.Serialize(source, new JsonSerializerOptions() { WriteIndented = true });
             File.WriteAllText(fileName, jsonString);
                 
+
+        }
+
+        public void setMaxAge(int maxAge)
+        {
+            _appParameters.maxAge = maxAge;           
 
         }
 
