@@ -9,5 +9,6 @@ namespace MessageLoggingService.Contracts
         public void setMaxAge(int maxAge);
         public ServiceState getServiceState();
         public void deleteMessage();
+        public void setTimerInterval(int timerInterval);
     }
 }

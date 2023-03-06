@@ -54,5 +54,11 @@ namespace MessageLoggingService.Repositories
             var x = _logs.RemoveAll(x => (DateTime.Now - x.loggedAt).TotalSeconds >= _appParameters.maxAge);
         }
 
+        public void setTimerInterval(int timerInterval)
+        {
+            _appParameters.timeInterval = timerInterval;
+
+        }
+
     }
 }

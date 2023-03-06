@@ -4,13 +4,24 @@ namespace MessageLoggingService.HostedService
 {
     public class PeriodicHostedService : BackgroundService
     {
-        private readonly TimeSpan _period = TimeSpan.FromSeconds(60);
+        private TimeSpan _period;
         private readonly IServiceScopeFactory _factory;
         private readonly ILogRepository _logRepository;
         public PeriodicHostedService(IServiceScopeFactory factory, ILogRepository logRepository)
         {
             _factory = factory;
             _logRepository = logRepository;
+
+            try
+            {
+                string interval = Environment.GetCommandLineArgs()[1];
+                _period = TimeSpan.FromSeconds(int.Parse(interval));
+            }
+            catch
+            {
+                //If any error with the CLI arguments , default value is taken
+                _period = TimeSpan.FromSeconds(60);
+            }
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
