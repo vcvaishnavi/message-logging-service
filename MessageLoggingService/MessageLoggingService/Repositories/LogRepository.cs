@@ -49,5 +49,10 @@ namespace MessageLoggingService.Repositories
             return serviceState;
         }
 
+        public void deleteMessage()
+        {
+            var x = _logs.RemoveAll(x => (DateTime.Now - x.loggedAt).TotalSeconds >= _appParameters.maxAge);
+        }
+
     }
 }
