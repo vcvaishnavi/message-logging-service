@@ -1,10 +1,16 @@
 # message-logging-service
 
-Its a message logging service where we can add messages to an interal log object.
+	Its a message logging service where we can add messages to an internal log object.
 A background job runs in the backend every 1 minute by default and deletes messages older than max size (60s is the default).
 
 The definition of restful service API can be viewed in swagger after hosting the service locally at
 https://localhost:7208/swagger/index.html
+
+Below Rest Methods available:
+1. [GET](https://localhost:7208//api//LogMessage?logId=<int>)   - Read log messages for a given logId
+2. [POST](https://localhost:7208//api//LogMessage?name=<string>&logId=<int>&message=<string>)   - Adds the log message to the log object.
+3. [PUT](https://localhost:7208//api//LogMessage?maxAge=<int>)  - Updates the max Age variable to the given value in seconds.
+4. [GET](https://localhost:7208//)  - Get service state parameters
 
 Steps to execute the service:
 
@@ -21,3 +27,5 @@ Steps:
 https://localhost:7208/
 
 Swagger link : https://localhost:7208/swagger/index.html
+	
+

@@ -15,13 +15,13 @@ namespace MessageLoggingService.Repositories
             _appParameters = new AppParameters();
             _logs = new List<Log>();
         }
-        public List<Log> getLog([Required] int logId)
+        public List<Log> getLog(int logId)
         {
             return _logs.Where(x => x.logId == logId)
                     .Where(x => (DateTime.Now - x.loggedAt).TotalSeconds < _appParameters.maxAge).ToList();
         }
 
-        public void addMessage([Required] string name, [Required] int logId, string message)
+        public void addMessage(string name,int logId, string message)
         {
 
             var logMessage = new Log { logId = logId, message = message, name = name, loggedAt = DateTime.Now };
