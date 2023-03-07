@@ -19,13 +19,12 @@ namespace MessageLoggingService.Controllers
 
         
         [HttpGet(Name = "GetLog")]
-
         /// <summary>
         /// Reads the log messages from the log object and filters it by log ID and MaxAge
         /// </summary>
         /// <param name="logId"></param>
         /// <returns>List of log messages after filter</returns>
-        public List<Log> GetLog(int logId)
+        public List<Log> GetLog([Required] int logId)
         {
            
             return (_logRepository.getLog(logId));
@@ -39,13 +38,14 @@ namespace MessageLoggingService.Controllers
         /// <param name="name"></param>
         /// <param name="logId"></param>
         /// <param name="message"></param>
-        public void AddMessage(string name,int logId,string message)
+        public void AddMessage([Required]string name,[Required]int logId,string message)
         {
 
-            _logRepository.addMessage(name, logId, message);
-        }
+            _logRepository.addMessage(name, logId, message);      }
+
        
-      
+
+
         [HttpPut(Name = "SetMaxAge")]
         /// <summary>
         /// Updates the max Age variable to the given value.
@@ -54,13 +54,26 @@ namespace MessageLoggingService.Controllers
         /// <exception cref="ArgumentException"></exception>
         public void SetMaxAge([Required] int maxAge)
         {
-            if(maxAge == 0)
+            if(maxAge <= 0)
             {
-                throw new ArgumentException("MaxAge cannot be 0.");
+                throw new ArgumentException("MaxAge cannot be less than equal to zero.");
             }
 
             _logRepository.setMaxAge(maxAge);
         }
+
+        [HttpGet]
+        [Route("/")]
+        /// <summary>
+        /// Get service state parameters
+        /// </summary>
+        /// <returns></returns>
+        public ServiceState GetServiceState()
+        {
+            return _logRepository.getServiceState();
+        }
+
+
 
     }
 }
