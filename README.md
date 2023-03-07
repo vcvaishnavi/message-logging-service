@@ -1,7 +1,7 @@
 # message-logging-service
 
-	Its a message logging service where we can add messages to an internal log object.
-A background job runs in the backend every 1 minute by default and deletes messages older than max size (60s is the default).
+	Its a message logging service where we can add messages to an internal log object.A background job runs in the backend every 1 minute by default and deletes messages older than max size (60s is the default).
+
 
 The definition of restful service API can be viewed in swagger after hosting the service locally at
 https://localhost:7208/swagger/index.html
