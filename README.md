@@ -28,4 +28,4 @@ https://localhost:7208/
 
 Swagger link : https://localhost:7208/swagger/index.html
 	
-	![image](https://user-images.githubusercontent.com/45872160/223425604-797ec2c6-9517-440c-84b4-59aa7db8ba63.png)
+
