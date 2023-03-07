@@ -35,6 +35,7 @@ namespace MessageLoggingService.HostedService
                 await using AsyncServiceScope asyncScope = _factory.CreateAsyncScope();
                 LogRemovalService deletionService = asyncScope.ServiceProvider.GetRequiredService<LogRemovalService>();
                 await deletionService.LogRemovalAsync();
+                Console.WriteLine($"Executed the deletion job at ...{DateTime.Now}");
 
 
             }
