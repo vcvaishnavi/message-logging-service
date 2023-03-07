@@ -7,14 +7,14 @@ The definition of restful service API can be viewed in swagger after hosting the
 https://localhost:7208/swagger/index.html
 
 Below Rest Methods available:
-1. [GET](https://localhost:7208//api//LogMessage?logId=<int>)   - Read log messages for a given logId
-2. [POST](https://localhost:7208//api//LogMessage?name=<string>&logId=<int>&message=<string>)   - Adds the log message to the log object.
-3. [PUT](https://localhost:7208//api//LogMessage?maxAge=<int>)  - Updates the max Age variable to the given value in seconds.
-4. [GET](https://localhost:7208//)  - Get service state parameters
+1. [GET](https://localhost:7208/api/LogMessage?logId=<int>)   - Read log messages for a given logId
+2. [POST](https://localhost:7208/api/LogMessage?name=<string>&logId=<int>&message=<string>)   - Adds the log message to the log object.
+3. [PUT](https://localhost:7208/api/LogMessage?maxAge=<int>)  - Updates the max Age variable to the given value in seconds.
+4. [GET](https://localhost:7208/)  - Get service state parameters
 
 Steps to execute the service:
 
-Preqequisites:  Need to have .Net 6.0 runtime installed in the computer.
+Prerequisites:  Need to have .Net 6.0 runtime installed in the computer.
 
 Steps:
 
